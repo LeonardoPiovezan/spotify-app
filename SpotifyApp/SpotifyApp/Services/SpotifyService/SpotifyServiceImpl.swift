@@ -29,7 +29,6 @@ class SpotifyServiceImpl: SpotifyService {
 
 
     func login() -> Single<Bool> {
-
         self.loginURL = auth.spotifyWebAuthenticationURL()
         return Single<Bool>.create {[loginURL] single in
 
@@ -40,8 +39,5 @@ class SpotifyServiceImpl: SpotifyService {
             }
             return Disposables.create()
         }
-
     }
-
-
 }

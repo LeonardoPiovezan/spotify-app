@@ -14,5 +14,8 @@ extension DefaultContainer {
             LoginView()
         }
 
+        self.container.register(SearchView.self) { _ in
+            SearchView()
+        }
     }
 }

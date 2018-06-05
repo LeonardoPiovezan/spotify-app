@@ -16,19 +16,25 @@ class AppCoordinator: Coordinator {
 
     var loginCoordinator: LoginCoordinator?
 
+    var searchCoordinator: SearchCoordinator?
     init(window: UIWindow, container: Container) {
         self.window = window
         self.container = container
     }
 
     func start() {
-        showLogin()
+       // showLogin()
+        showSearch()
     }
 
     private func showLogin() {
         self.loginCoordinator  = LoginCoordinator(window: window, container: container)
         self.loginCoordinator?.start()
     }
-
+    
+    private func showSearch() {
+        self.searchCoordinator = SearchCoordinator(window: window, container: container)
+        self.searchCoordinator?.start()
+    }
 
 }
