@@ -9,7 +9,6 @@
 import RxSwift
 import RxCocoa
 
-
 protocol SpotifyRepository {
     func login() -> Single<Void>
 }

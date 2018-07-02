@@ -31,7 +31,7 @@ class AppCoordinator: Coordinator {
         self.loginCoordinator  = LoginCoordinator(window: window, container: container)
         self.loginCoordinator?.start()
     }
-    
+
     private func showSearch() {
         self.searchCoordinator = SearchCoordinator(window: window, container: container)
         self.searchCoordinator?.start()

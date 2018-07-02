@@ -21,7 +21,8 @@ class LoginViewModel {
 
     init(input: (Signal<Void>)) {
 
-        let service = SpotifyServiceImpl(auth: SPTAuth.defaultInstance(), scopes: [SPTAuthStreamingScope, SPTAuthPlaylistReadPrivateScope, SPTAuthPlaylistModifyPublicScope, SPTAuthPlaylistReadPrivateScope])
+        let service = SpotifyServiceImpl(auth: SPTAuth.defaultInstance(),
+                                         scopes: [SPTAuthStreamingScope, SPTAuthPlaylistReadPrivateScope, SPTAuthPlaylistModifyPublicScope, SPTAuthPlaylistReadPrivateScope])
 
         self.signedIn = input.flatMapLatest {
             return service.login().map { completed in

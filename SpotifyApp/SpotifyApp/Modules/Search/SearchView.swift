@@ -29,13 +29,12 @@ class SearchView: UIViewController {
             .subscribe(onNext: {text in
                 print(text)
             }).disposed(by: disposeBag)
-        
         tableView.register(cellType: SearchViewCell.self)
-        Observable.of(["1", "2", "3", "4", "5"]).bind(to: tableView.rx.items(cellIdentifier: "SearchViewCell", cellType: SearchViewCell.self)) { _, model, cell in
+        Observable.of(["1", "2", "3", "4", "5"]).bind(to: tableView.rx.items(cellIdentifier: "SearchViewCell",
+                                                                             cellType: SearchViewCell.self)) { _, model, cell in
             cell.nameLabel.text = model
-        }.disposed(by: disposeBag)      
+        }.disposed(by: disposeBag)
     }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

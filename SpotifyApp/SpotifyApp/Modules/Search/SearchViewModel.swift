@@ -11,9 +11,7 @@ import RxSwift
 import RxCocoa
 
 class SearchViewModel {
-    
     init() {
         
     }
-    
 }

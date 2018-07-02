@@ -43,7 +43,6 @@ class ViewController: UIViewController {
                 if done {
                     if (auth?.canHandle(auth?.redirectURL))! {
 
-                        
                     }
                 }
             })
@@ -53,8 +52,9 @@ class ViewController: UIViewController {
     @objc func updateAfterFirstLogin() {
 
         if let sessionObject = UserDefaults.standard.object(forKey: "SpotifySession") as? AnyObject {
-            let sessionDataObject = sessionObject as! Data
-            let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionDataObject) as! SPTSession
+            guard let sessionDataObject = sessionObject as? Data, let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionDataObject) as? SPTSession else {
+                return
+            }
             self.session = firstTimeSession
             initializePlayer(authSession: session)
         }
@@ -65,9 +65,12 @@ class ViewController: UIViewController {
             self.player = SPTAudioStreamingController.sharedInstance()
             self.player?.playbackDelegate = self
             self.player?.delegate = self
-            try! player!.start(withClientId: auth?.clientID)
-            self.player!.login(withAccessToken: authSession.accessToken)
-
+            do {
+                try player!.start(withClientId: auth?.clientID)
+                self.player!.login(withAccessToken: authSession.accessToken)
+            } catch(let error) {
+                print(error)
+            }
         }
     }
 

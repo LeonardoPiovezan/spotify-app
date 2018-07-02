@@ -27,7 +27,6 @@ class SpotifyServiceImpl: SpotifyService {
         auth.requestedScopes = scopes
     }
 
-
     func login() -> Single<Bool> {
         self.loginURL = auth.spotifyWebAuthenticationURL()
         return Single<Bool>.create {[loginURL] single in

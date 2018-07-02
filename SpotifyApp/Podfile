@@ -11,6 +11,7 @@ target 'SpotifyApp' do
 	pod 'RxCocoa'
     pod 'Swinject'
     pod 'Reusable'
+    pod 'SwiftLint'
 
   target 'SpotifyAppTests' do
     inherit! :search_paths
