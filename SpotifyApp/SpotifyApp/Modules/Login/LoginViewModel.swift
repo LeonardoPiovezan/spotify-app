@@ -17,13 +17,13 @@ class LoginViewModel {
     let signInSuccess = PublishSubject<Bool>()
     let signInError = PublishSubject<Bool>()
 
+    private let service: SpotifyService
     private let disposeBag = DisposeBag()
 
-    init(input: (Signal<Void>)) {
+    init(input: (Signal<Void>), service: SpotifyService) {
 
-        let service = SpotifyServiceImpl(auth: SPTAuth.defaultInstance(),
-                                         scopes: [SPTAuthStreamingScope, SPTAuthPlaylistReadPrivateScope, SPTAuthPlaylistModifyPublicScope, SPTAuthPlaylistReadPrivateScope])
-
+        self.service = service
+        
         self.signedIn = input.flatMapLatest {
             return service.login().map { completed in
                 return completed

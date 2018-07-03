@@ -68,7 +68,7 @@ class ViewController: UIViewController {
             do {
                 try player!.start(withClientId: auth?.clientID)
                 self.player!.login(withAccessToken: authSession.accessToken)
-            } catch(let error) {
+            } catch let error {
                 print(error)
             }
         }
@@ -82,7 +82,6 @@ class ViewController: UIViewController {
 
 extension ViewController: SPTAudioStreamingDelegate {
     func audioStreamingDidLogin(_ audioStreaming: SPTAudioStreamingController!) {
-    
         self.player?.playSpotifyURI("spotify:track:25qfFpoGhk9Njgu5nl36sS?si=WRRzKD7DTPiaQhufnQk-Cw", startingWith: 0, startingWithPosition: 0, callback: { (error) in
 
             if error != nil {
@@ -90,8 +89,6 @@ extension ViewController: SPTAudioStreamingDelegate {
             } else {
                 print("playing")
             }
-
-
         })
     }
 }

@@ -6,12 +6,10 @@
 //  Copyright © 2018 Leonardo Piovezan. All rights reserved.
 //
 
-import Foundation
-
 extension DefaultContainer {
     func registerViews() {
-        self.container.register(LoginView.self) { _ in
-            LoginView()
+        self.container.register(LoginView.self) { resolver in
+            LoginView(service: resolver.resolve(SpotifyService.self)!)
         }
 
         self.container.register(SearchView.self) { _ in

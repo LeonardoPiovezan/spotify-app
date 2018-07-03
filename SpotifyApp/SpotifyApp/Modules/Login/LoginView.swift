@@ -15,12 +15,14 @@ class LoginView: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
 
     var viewModel: LoginViewModel!
+    var service: SpotifyService
     let disposeBag = DisposeBag()
 
-    init() {
+    init(service: SpotifyService) {
+        self.service = service
         super.init(nibName: String(describing: LoginView.self), bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -29,7 +31,6 @@ class LoginView: UIViewController {
         configureView()
         setUpViewModel()
         setUpBindings()
-
     }
 
     func configureView() {
@@ -46,7 +47,7 @@ class LoginView: UIViewController {
     }
 
     func setUpViewModel() {
-        self.viewModel = LoginViewModel(input: self.loginButton.rx.tap.asSignal())
+        self.viewModel = LoginViewModel(input: self.loginButton.rx.tap.asSignal(), service: self.service)
     }
 
 }

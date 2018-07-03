@@ -23,8 +23,8 @@ class AppCoordinator: Coordinator {
     }
 
     func start() {
-       // showLogin()
-        showSearch()
+        showLogin()
+//        showSearch()
     }
 
     private func showLogin() {

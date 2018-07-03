@@ -15,6 +15,7 @@ final class DefaultContainer {
 
     init() {
         self.container = Container()
+        registerServices()
         registerViews()
     }
 }
