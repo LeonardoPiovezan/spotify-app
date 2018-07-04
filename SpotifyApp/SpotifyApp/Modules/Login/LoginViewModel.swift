@@ -14,8 +14,8 @@ class LoginViewModel {
 
     let signedIn: Driver<Bool>
 
-    let signInSuccess = PublishSubject<Bool>()
-    let signInError = PublishSubject<Bool>()
+    private let signInSuccess = PublishSubject<Bool>()
+    private let signInError = PublishSubject<Bool>()
 
     private let service: SpotifyService
     private let disposeBag = DisposeBag()

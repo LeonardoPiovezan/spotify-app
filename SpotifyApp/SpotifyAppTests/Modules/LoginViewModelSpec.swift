@@ -8,6 +8,8 @@
 
 import Quick
 import Nimble
+import RxSwift
+import RxCocoa
 
 @testable import SpotifyApp
 
@@ -15,8 +17,38 @@ class LoginViewModelSpec: QuickSpec {
 
     override func spec() {
 
-        it("test") {
-            expect(true) == false
+        let signInTap = PublishSubject<Void>()
+        let service = MockSpotifyService(result: true)
+        let subject = LoginViewModel(input: signInTap.asSignal(onErrorJustReturn: ()),
+                                     service: service)
+        let disposeBag = DisposeBag()
+        beforeEach {
+
         }
+
+        describe("Login View Behavior") {
+            it("Sign in check success") {
+                var result: Bool!
+                service.setResult(result: true)
+                subject.signedIn.drive(onNext: { signedIn in
+                    result = signedIn
+                }).disposed(by: disposeBag)
+                signInTap.onNext(())
+
+                expect(result).toEventually(equal(true))
+            }
+
+            it("Sign in check failure") {
+                var result: Bool!
+                service.setResult(result: false)
+                subject.signedIn.drive(onNext: { signedIn in
+                    result = signedIn
+                }).disposed(by: disposeBag)
+                signInTap.onNext(())
+
+                expect(result).toEventually(equal(false))
+            }
+        }
+
     }
 }

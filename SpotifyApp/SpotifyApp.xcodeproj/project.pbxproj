@@ -10,6 +10,7 @@
 		1A131F0020E9C01A0060D216 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 1A131EFF20E9C01A0060D216 /* .swiftlint.yml */; };
 		1A131F0520EB0A990060D216 /* LoginViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A131F0420EB0A990060D216 /* LoginViewModelSpec.swift */; };
 		1A131F0720EB0E1F0060D216 /* DefaultContainer+Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A131F0620EB0E1F0060D216 /* DefaultContainer+Services.swift */; };
+		1A131F0A20EC60800060D216 /* MockSpotifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A131F0920EC60800060D216 /* MockSpotifyService.swift */; };
 		1A5F921D20BF7DF700FB3C9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F921C20BF7DF700FB3C9D /* AppDelegate.swift */; };
 		1A5F921F20BF7DF700FB3C9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F921E20BF7DF700FB3C9D /* ViewController.swift */; };
 		1A5F922420BF7DF900FB3C9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A5F922320BF7DF900FB3C9D /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		1A131EFF20E9C01A0060D216 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		1A131F0420EB0A990060D216 /* LoginViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelSpec.swift; sourceTree = "<group>"; };
 		1A131F0620EB0E1F0060D216 /* DefaultContainer+Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultContainer+Services.swift"; sourceTree = "<group>"; };
+		1A131F0920EC60800060D216 /* MockSpotifyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSpotifyService.swift; sourceTree = "<group>"; };
 		1A5F921920BF7DF700FB3C9D /* SpotifyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotifyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A5F921C20BF7DF700FB3C9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A5F921E20BF7DF700FB3C9D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,14 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
+		1A131F0820EC605F0060D216 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				1A131F0920EC60800060D216 /* MockSpotifyService.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		1A5F921020BF7DF700FB3C9D = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +213,7 @@
 		1A5F923020BF7DF900FB3C9D /* SpotifyAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				1A131F0820EC605F0060D216 /* Mocks */,
 				1A131F0120EB0A610060D216 /* Modules */,
 				1A5F923120BF7DF900FB3C9D /* SpotifyAppTests.swift */,
 				1A5F923320BF7DF900FB3C9D /* Info.plist */,
@@ -634,6 +645,7 @@
 			files = (
 				1A5F923220BF7DF900FB3C9D /* SpotifyAppTests.swift in Sources */,
 				1A131F0520EB0A990060D216 /* LoginViewModelSpec.swift in Sources */,
+				1A131F0A20EC60800060D216 /* MockSpotifyService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

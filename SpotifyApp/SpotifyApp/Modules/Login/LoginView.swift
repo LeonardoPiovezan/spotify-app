@@ -39,15 +39,12 @@ class LoginView: UIViewController {
 
     func setUpBindings() {
 
-        self.viewModel.signInSuccess.subscribe(onNext: { (response) in
-            if response {
-                print("deu boaaaaa")
-            }
+        self.viewModel.signedIn.drive(onNext: { _ in
+            print("boaaa")
         }).disposed(by: disposeBag)
     }
 
     func setUpViewModel() {
         self.viewModel = LoginViewModel(input: self.loginButton.rx.tap.asSignal(), service: self.service)
     }
-
 }
